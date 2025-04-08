@@ -62,4 +62,3 @@ typing_extensions==4.13.1
 tzdata==2025.2
 urllib3==2.3.0
 watchdog==6.0.0
-portaudio19-dev
