@@ -7,6 +7,7 @@ import sounddevice as sd
 import soundfile as sf
 from dotenv import load_dotenv
 from openai import OpenAI
+from audio_recorder_streamlit import audio_recorder  # Add browser-based recorder
 
 
 def main():
@@ -106,6 +107,13 @@ def main():
         sf.write(temp_file.name, audio, sample_rate)
         return temp_file.name
 
+    def save_audio_bytes(audio_bytes):
+        """Save audio bytes to a temporary file"""
+        temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=".wav")
+        temp_file.write(audio_bytes)
+        temp_file.close()
+        return temp_file.name
+
     def transcribe_audio(file_path):
         try:
             with open(file_path, "rb") as file:
@@ -156,6 +164,36 @@ def main():
                 st.error("Failed to transcribe audio. Please try again.")
             st.session_state.processing = False
 
+    def process_browser_audio(audio_bytes):
+        """Process audio bytes from browser recorder"""
+        if not audio_bytes:
+            return
+
+        st.session_state.processing = True
+        status = st.empty()
+        status.markdown("""
+        <div class="status-processing">
+            <h3>🔄 Processing your audio...</h3>
+            <p>Converting speech to text using OpenAI Whisper. This may take a few moments.</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+        # Save audio to a temporary file
+        audio_path = save_audio_bytes(audio_bytes)
+        result = transcribe_audio(audio_path)
+
+        if result:
+            st.session_state.transcript = result
+            status.empty()
+            if not st.session_state.toast_shown:
+                st.toast("Transcription complete!", icon="✅")
+                st.session_state.toast_shown = True
+            perform_search(result)
+        else:
+            status.empty()
+            st.error("Failed to transcribe audio. Please try again.")
+        st.session_state.processing = False
+
     def ai_search(query, top_k=10):
         try:
             results = dense_index.search(namespace=namespace, query={"top_k": top_k, "inputs": {"text": query}})
@@ -195,6 +233,28 @@ def main():
         else:
             if st.button("🎤 Start Recording", type="primary", use_container_width=True):
                 record_audio()
+
+    # Add browser-based recording option in the sidebar
+    with st.sidebar:
+        with st.expander("🌐 Streamlit Cloud Recording"):
+            st.markdown("""
+            ### Browser-based Recording
+            If deployed on Streamlit Cloud, use this recorder instead of the main recording button.
+            """)
+
+            # Browser-based audio recorder
+            st.write("Click the microphone button to start/stop recording:")
+            audio_bytes = audio_recorder(
+                text="",
+                recording_color="#e74c3c",
+                neutral_color="#3498db",
+                icon_name="microphone",
+                icon_size="2x"
+            )
+
+            # Process recorded audio when available
+            if audio_bytes:
+                process_browser_audio(audio_bytes)
 
     if st.session_state.recording:
         rec_status = st.empty()
@@ -306,6 +366,7 @@ def main():
             - Speak clearly and be specific
             - Edit your query for more accurate results
             - Adjust duration or result count in sidebar
+            - On Streamlit Cloud, use the browser recorder in the sidebar
             """)
 
     # ----- SIDEBAR SETTINGS -----
