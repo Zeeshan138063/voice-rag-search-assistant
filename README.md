@@ -1,4 +1,4 @@
-# 🎙️ Voice RAG Search Assistant
+.# 🎙️ Voice RAG Search Assistant
 
 An AI-powered voice-based search assistant built with [Streamlit](https://streamlit.io/), [OpenAI Whisper](https://openai.com/research/whisper), and [Pinecone](https://www.pinecone.io/) vector search. Just speak your query, and let the app transcribe and semantically search your knowledge base using Retrieval-Augmented Generation (RAG).
 
@@ -24,6 +24,7 @@ pip install -r requirements.txt
 Create a `.env` file with your OpenAI API key:
 ```
 OPENAI_API_KEY=your-api-key-here
+PINECONE_API_KEY=your-pinecone-api-key-here
 ```
 
 ## 🧪 Run the App
