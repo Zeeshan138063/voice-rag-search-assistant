@@ -1,7 +1,7 @@
 import json
 
 # Open and load the JSON file
-with open('records.json', 'r', encoding='utf-8') as file:
+with open('../records.json', 'r', encoding='utf-8') as file:
     records = json.load(file)
 
 from pinecone_client import pc, index_name, namespace

@@ -10,13 +10,13 @@ from dotenv import load_dotenv
 from openai import OpenAI
 
 # Import the AI search functionality
-from pinecone_client import dense_index, namespace
+from ai_search.pinecone_client import dense_index, namespace
 
 # ----- CONFIGURATION -----
 load_dotenv()
 # ----- PAGE SETUP -----
-st.set_page_config(page_title="Voice RAG Search Assistant", page_icon="🎙️", layout="wide",
-    initial_sidebar_state="collapsed")
+st.set_page_config(page_title="Voice AI Search Assistant", page_icon="🎙️", layout="wide",
+                   initial_sidebar_state="collapsed")
 
 
 def load_css():
@@ -32,7 +32,7 @@ client = OpenAI(api_key=OPENAI_API_KEY)
 
 # ----- SESSION STATE -----
 defaults = {"audio_data": None, "recording": False, "transcript": "", "processing": False, "search_results": None,
-    "toast_shown": False, "record_duration": 15, "top_k": 10}
+            "toast_shown": False, "record_duration": 15, "top_k": 10}
 for key, val in defaults.items():
     if key not in st.session_state:
         st.session_state[key] = val
@@ -43,14 +43,64 @@ sample_rate = 16000
 # ----- HEADER -----
 st.markdown("""
 <div class="header-container">
-    <div class="header-emoji">🎙️</div>
-    <h1>Voice RAG Search Assistant</h1>
-    <p>Speak naturally and search your knowledge base with AI-powered RAG technology</p>
+    <h1>🎙️ Voice AI Search Assistant</h1>
+    <p>Speak naturally and search your knowledge base with AI-powered technology</p>
 </div>
 """, unsafe_allow_html=True)
 
+import json
+import pandas as pd
+import streamlit as st
+
 
 # ----- FUNCTIONS -----
+# Add this function to handle product catalog
+def display_product_catalog():
+    """
+    Display all products from records.json in a searchable table
+    """
+    st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
+    st.markdown('<h2>📋 Product Catalog</h2>', unsafe_allow_html=True)
+
+    # Add description
+    st.markdown("""
+    <p style="margin-bottom: 20px;">
+        Browse the available products below to help with formulating your search queries.
+        You can filter and sort the table to find specific items.
+    </p>
+    """, unsafe_allow_html=True)
+
+    try:
+        # Load products directly from records.json
+        with open('records.json', 'r', encoding='utf-8') as f:
+            products = json.load(f)
+
+        # Convert to DataFrame for display
+        df = pd.DataFrame([{"ID": item["_id"], "Product Name": item["chunk_text"]} for item in products])
+
+        # Add search functionality
+        search_term = st.text_input("Search products:", "")
+        if search_term:
+            filtered_df = df[df["Product Name"].str.contains(search_term, case=False)]
+        else:
+            filtered_df = df
+
+        # Display the DataFrame as an interactive table
+        st.dataframe(filtered_df, column_config={"ID": st.column_config.TextColumn("ID", width="small"),
+                                                 "Product Name": st.column_config.TextColumn("Product Name",
+                                                                                             width="large"), },
+                     use_container_width=True, hide_index=True, )
+
+        # Add a note about the number of products
+        st.markdown(f"<p><small>Showing {len(filtered_df)} of {len(products)} products</small></p>",
+                    unsafe_allow_html=True)
+
+    except FileNotFoundError:
+        st.error("records.json file not found. Make sure it's in the same directory as your app.")
+    except Exception as e:
+        st.error(f"Error loading product catalog: {str(e)}")
+
+
 def save_audio():
     temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=".wav")
     audio = st.session_state.audio_data
@@ -73,7 +123,7 @@ def transcribe_audio(file_path):
 
 def record_audio():
     st.session_state.audio_data = sd.rec(int(sample_rate * st.session_state.record_duration), samplerate=sample_rate,
-        channels=1, dtype=np.int16)
+                                         channels=1, dtype=np.int16)
     st.session_state.recording = True
     st.session_state.transcript = ""
     st.session_state.search_results = None
@@ -212,26 +262,44 @@ if st.session_state.search_results:
             </div>
         """, unsafe_allow_html=True)
 
+        # Create a styled table with consistent widths
+        st.markdown("""
+        <div class="results-table">
+            <table style="width:100%; table-layout:fixed;">
+                <thead>
+                    <tr>
+                        <th style="width:80px;">Number</th>
+                        <th style="width:calc(100% - 230px);">Product Name</th>
+                        <th style="width:150px;">Relevancy Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+        """, unsafe_allow_html=True)
+
+        # Create table rows for each result
         for i, hit in enumerate(st.session_state.search_results):
             score = hit.get("_score", 0)
-            text = hit.get("fields", {}).get("chunk_text", "No text")
-            hit_id = hit.get("_id", "N/A")
-            relevance = "high-relevance" if score > 0.7 else "medium-relevance" if score > 0.4 else "low-relevance"
+            text = hit.get("fields", {}).get("chunk_text", "No text available")
             score_pct = round(score * 100)
-            highlighted = highlight_query_terms(text, st.session_state.transcript)
 
+            # Determine relevance class based on score
+            relevance_class = "high-relevance" if score > 0.7 else "medium-relevance" if score > 0.4 else "low-relevance"
+
+            # Create a table row with the exact same widths as header
             st.markdown(f"""
-            <div class="card {relevance}">
-                 <div class="result-number">{i + 1}</div>
-                <div class="card-header">
-                    <h3>Match #{i + 1}</h3>
-                    <span class="score-badge">Relevance: {score_pct}%</span>
-                </div>
-                <div class="card-content">{highlighted}</div>
-                <div class="result-id">ID: {hit_id}</div>
-            </div>
+                <tr class="{relevance_class}">
+                    <td style="width:80px; text-align:center;">{i + 1}</td>
+                    <td style="width:calc(100% - 230px);">{text}</td>
+                    <td style="width:150px; text-align:center;"><span class="score-badge">{score_pct}%</span></td>
+                </tr>
             """, unsafe_allow_html=True)
-        st.markdown("</div>", unsafe_allow_html=True)
+
+        # Close the table
+        st.markdown("""
+                </tbody>
+            </table>
+        </div>
+        """, unsafe_allow_html=True)
 
 # ----- HELP EXPANDER -----
 with st.expander("📚 How to Use This App"):
@@ -254,6 +322,10 @@ with st.expander("📚 How to Use This App"):
 # ----- SIDEBAR SETTINGS -----
 with st.sidebar:
     st.title("⚙️ Settings")
+    # Add product catalog toggle
+    st.subheader("📋 Product Catalog")
+    if st.checkbox("Show Product Catalog", value=False, help="Display all available products for reference"):
+        display_product_catalog()
 
     st.subheader("🎙️ Recording Duration")
     duration = st.slider("Seconds", 5, 60, st.session_state.record_duration)
@@ -272,10 +344,11 @@ with st.sidebar:
     st.markdown("---")
     col1, col2 = st.columns(2)
     with col1:
+        # To this:
         if st.button("🔄 New Search"):
             st.session_state.transcript = ""
             st.session_state.search_results = None
-            st.experimental_rerun()
+            st.rerun()  # Fixed line
     with col2:
         if st.button("⬇️ Export Results"):
             st.toast("Export feature coming soon!", icon="ℹ️")
@@ -283,6 +356,6 @@ with st.sidebar:
 # ----- FOOTER -----
 st.markdown("""
 <div style="text-align:center; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd;">
-    <p style="color: #666; font-size: 0.8rem;">Powered by OpenAI Whisper & Pinecone | Built with ❤️ in Streamlit</p>
+    <p style="color: #666; font-size: 0.8rem;"></p>
 </div>
 """, unsafe_allow_html=True)

@@ -167,3 +167,142 @@ footer {
     border-top: 1px solid #eee;
     margin-top: 2rem;
 }
+
+/* Table styling */
+.results-table {
+    margin: 20px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.results-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.results-table th {
+    background-color: #2c3e50;
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.results-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.results-table tr:hover {
+    background-color: rgba(240, 248, 255, 0.95);
+}
+
+/* Relevance styling */
+.results-table tr.high-relevance {
+    border-left: 4px solid #27ae60;
+}
+
+.results-table tr.medium-relevance {
+    border-left: 4px solid #f39c12;
+}
+
+.results-table tr.low-relevance {
+    border-left: 4px solid #e74c3c;
+}
+
+.score-badge {
+    display: inline-block;
+    padding: 5px 8px;
+    border-radius: 20px;
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+tr.high-relevance .score-badge {
+    background-color: #27ae60;
+}
+
+tr.medium-relevance .score-badge {
+    background-color: #f39c12;
+}
+
+tr.low-relevance .score-badge {
+    background-color: #e74c3c;
+}
+
+/* Table styling with fixed layout */
+.results-table {
+    margin: 20px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.results-table table {
+    width: 100%;
+    table-layout: fixed; /* This ensures columns maintain their width */
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.results-table th, .results-table td {
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis for text that overflows */
+    white-space: normal; /* Allow text to wrap within cells */
+}
+
+.results-table th {
+    background-color: #2c3e50;
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.results-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.results-table tr:hover {
+    background-color: rgba(240, 248, 255, 0.95);
+}
+
+/* Relevance styling */
+.results-table tr.high-relevance {
+    border-left: 4px solid #27ae60;
+}
+
+.results-table tr.medium-relevance {
+    border-left: 4px solid #f39c12;
+}
+
+.results-table tr.low-relevance {
+    border-left: 4px solid #e74c3c;
+}
+
+.score-badge {
+    display: inline-block;
+    padding: 5px 8px;
+    border-radius: 20px;
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+tr.high-relevance .score-badge {
+    background-color: #27ae60;
+}
+
+tr.medium-relevance .score-badge {
+    background-color: #f39c12;
+}
+
+tr.low-relevance .score-badge {
+    background-color: #e74c3c;
+}
