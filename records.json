@@ -1,0 +1,402 @@
+[
+  {
+    "_id": "rec1",
+    "chunk_text": "Surf Excel Quick Wash Detergent Powder 500g"
+  },
+  {
+    "_id": "rec2",
+    "chunk_text": "Ariel Matic Front Load Detergent Powder 1kg"
+  },
+  {
+    "_id": "rec3",
+    "chunk_text": "Tide Plus Double Power Lemon & Mint Detergent Powder 1kg"
+  },
+  {
+    "_id": "rec4",
+    "chunk_text": "Rin Advanced Detergent Powder 1kg"
+  },
+  {
+    "_id": "rec5",
+    "chunk_text": "Surf Excel Matic Top Load Liquid Detergent 1L"
+  },
+  {
+    "_id": "rec6",
+    "chunk_text": "Ariel Complete Washing Powder 500g"
+  },
+  {
+    "_id": "rec7",
+    "chunk_text": "Wheel Green Lemon Detergent Powder 1kg"
+  },
+  {
+    "_id": "rec8",
+    "chunk_text": "Henko Matic Front Load Detergent 1kg"
+  },
+  {
+    "_id": "rec9",
+    "chunk_text": "Vanish Oxi Action Stain Remover Powder 500g"
+  },
+  {
+    "_id": "rec10",
+    "chunk_text": "Comfort Fabric Conditioner Morning Fresh 860ml"
+  },
+  {
+    "_id": "rec11",
+    "chunk_text": "Fortune Everyday Basmati Rice 5kg"
+  },
+  {
+    "_id": "rec12",
+    "chunk_text": "Daawat Rozana Super Basmati Rice 1kg"
+  },
+  {
+    "_id": "rec13",
+    "chunk_text": "India Gate Classic Basmati Rice 1kg"
+  },
+  {
+    "_id": "rec14",
+    "chunk_text": "Tata Sampann Unpolished Toor Dal 1kg"
+  },
+  {
+    "_id": "rec15",
+    "chunk_text": "24 Mantra Organic Moong Dal Yellow 1kg"
+  },
+  {
+    "_id": "rec16",
+    "chunk_text": "Fortune Sooji (Semolina) 500g"
+  },
+  {
+    "_id": "rec17",
+    "chunk_text": "Aashirvaad Select Sharbati Atta 5kg"
+  },
+  {
+    "_id": "rec18",
+    "chunk_text": "Pillsbury Chakki Fresh Atta 10kg"
+  },
+  {
+    "_id": "rec19",
+    "chunk_text": "Organic Tattva Chana Dal 1kg"
+  },
+  {
+    "_id": "rec20",
+    "chunk_text": "Kohinoor Super Silver Basmati Rice 5kg"
+  },
+  {
+    "_id": "rec21",
+    "chunk_text": "Parle-G Original Glucose Biscuits 800g"
+  },
+  {
+    "_id": "rec22",
+    "chunk_text": "Britannia Good Day Cashew Cookies 200g"
+  },
+  {
+    "_id": "rec23",
+    "chunk_text": "Hide & Seek Fab Vanilla Cream Biscuits 100g"
+  },
+  {
+    "_id": "rec24",
+    "chunk_text": "Oreo Chocolate Cream Biscuits Family Pack 120g"
+  },
+  {
+    "_id": "rec25",
+    "chunk_text": "Sunfeast Dark Fantasy Choco Fills 75g"
+  },
+  {
+    "_id": "rec26",
+    "chunk_text": "Little Debbie Swiss Roll Chocolate 300g"
+  },
+  {
+    "_id": "rec27",
+    "chunk_text": "Lay\u2019s Classic Salted Potato Chips 90g"
+  },
+  {
+    "_id": "rec28",
+    "chunk_text": "Kurkure Masala Munch 150g"
+  },
+  {
+    "_id": "rec29",
+    "chunk_text": "Bingo Mad Angles Achaari Masti 80g"
+  },
+  {
+    "_id": "rec30",
+    "chunk_text": "Haldiram's Mini Bhakarwadi 200g"
+  },
+  {
+    "_id": "rec31",
+    "chunk_text": "Maggi 2-Minute Instant Noodles Masala 70g"
+  },
+  {
+    "_id": "rec32",
+    "chunk_text": "Knorr Classic Thick Tomato Soup 50g"
+  },
+  {
+    "_id": "rec33",
+    "chunk_text": "Nestl\u00e9 Milkmaid Sweetened Condensed Milk 400g"
+  },
+  {
+    "_id": "rec34",
+    "chunk_text": "Kissan Fresh Tomato Ketchup 1kg Pouch"
+  },
+  {
+    "_id": "rec35",
+    "chunk_text": "Heinz Baked Beans in Tomato Sauce 415g Can"
+  },
+  {
+    "_id": "rec36",
+    "chunk_text": "Yippee Noodles Magic Masala 60g"
+  },
+  {
+    "_id": "rec37",
+    "chunk_text": "Kellogg\u2019s Corn Flakes Original 875g"
+  },
+  {
+    "_id": "rec38",
+    "chunk_text": "MTR Ready-to-Eat Paneer Butter Masala 300g"
+  },
+  {
+    "_id": "rec39",
+    "chunk_text": "Nutella Hazelnut Spread with Cocoa 350g Jar"
+  },
+  {
+    "_id": "rec40",
+    "chunk_text": "Saffola Oats Masala & Coriander 400g"
+  },
+  {
+    "_id": "rec41",
+    "chunk_text": "Amul Taaza Toned Milk 1L Pack"
+  },
+  {
+    "_id": "rec42",
+    "chunk_text": "Nandini Fresh Toned Milk Pouch 500ml"
+  },
+  {
+    "_id": "rec43",
+    "chunk_text": "Nestl\u00e9 Everyday Dairy Whitener 400g"
+  },
+  {
+    "_id": "rec44",
+    "chunk_text": "Amul Butter Pasteurized 500g"
+  },
+  {
+    "_id": "rec45",
+    "chunk_text": "Mother Dairy Classic Curd 400g"
+  },
+  {
+    "_id": "rec46",
+    "chunk_text": "Yakult Probiotic Drink Original 5 Pack"
+  },
+  {
+    "_id": "rec47",
+    "chunk_text": "Tropicana 100% Orange Juice No Added Sugar 1L"
+  },
+  {
+    "_id": "rec48",
+    "chunk_text": "Real Fruit Power Mixed Fruit Juice 1L"
+  },
+  {
+    "_id": "rec49",
+    "chunk_text": "Red Bull Energy Drink Can 250ml"
+  },
+  {
+    "_id": "rec50",
+    "chunk_text": "Horlicks Classic Malt Health Drink 500g Jar"
+  },
+  {
+    "_id": "rec51",
+    "chunk_text": "Dairy Milk Silk Roast Almond Chocolate 150g"
+  },
+  {
+    "_id": "rec52",
+    "chunk_text": "Ferrero Rocher Premium Chocolates 200g Box"
+  },
+  {
+    "_id": "rec53",
+    "chunk_text": "5 Star Caramel Chocolate Bar 45g"
+  },
+  {
+    "_id": "rec54",
+    "chunk_text": "Snickers Peanut Filled Chocolate Bar 42g"
+  },
+  {
+    "_id": "rec55",
+    "chunk_text": "Bournville Rich Cocoa Dark Chocolate 80g"
+  },
+  {
+    "_id": "rec56",
+    "chunk_text": "Perk Double Chocolate Wafer Bar 30g"
+  },
+  {
+    "_id": "rec57",
+    "chunk_text": "Munch Crunchy Chocolate 33g"
+  },
+  {
+    "_id": "rec58",
+    "chunk_text": "Hershey\u2019s Kisses Milk Chocolate Pack 108g"
+  },
+  {
+    "_id": "rec59",
+    "chunk_text": "Toblerone Swiss Milk Chocolate 100g"
+  },
+  {
+    "_id": "rec60",
+    "chunk_text": "Kit Kat 4 Finger Milk Chocolate Bar 37.3g"
+  },
+  {
+    "_id": "rec61",
+    "chunk_text": "Fortune Sunlite Refined Sunflower Oil 1L"
+  },
+  {
+    "_id": "rec62",
+    "chunk_text": "Saffola Gold Pro Healthy Lifestyle Oil 1L"
+  },
+  {
+    "_id": "rec63",
+    "chunk_text": "Dhara Mustard Oil Pouch 1L"
+  },
+  {
+    "_id": "rec64",
+    "chunk_text": "Patanjali Cow Ghee 1L Jar"
+  },
+  {
+    "_id": "rec65",
+    "chunk_text": "Everest Red Chilli Powder 200g"
+  },
+  {
+    "_id": "rec66",
+    "chunk_text": "MDH Garam Masala Blend 100g Box"
+  },
+  {
+    "_id": "rec67",
+    "chunk_text": "Catch Black Pepper Powder 100g"
+  },
+  {
+    "_id": "rec68",
+    "chunk_text": "Tata Salt Iodized 1kg"
+  },
+  {
+    "_id": "rec69",
+    "chunk_text": "Aachi Chicken Masala 200g"
+  },
+  {
+    "_id": "rec70",
+    "chunk_text": "Eastern Fish Curry Masala 100g"
+  },
+  {
+    "_id": "rec71",
+    "chunk_text": "Dove Intense Repair Shampoo 650ml Bottle"
+  },
+  {
+    "_id": "rec72",
+    "chunk_text": "Head & Shoulders Anti Dandruff Cool Menthol 675ml"
+  },
+  {
+    "_id": "rec73",
+    "chunk_text": "Clinic Plus Strong & Long Health Shampoo 340ml"
+  },
+  {
+    "_id": "rec74",
+    "chunk_text": "Pantene Hair Fall Control Shampoo 1L"
+  },
+  {
+    "_id": "rec75",
+    "chunk_text": "Fiama Gel Bar Patchouli and Macadamia 125g"
+  },
+  {
+    "_id": "rec76",
+    "chunk_text": "Dettol Original Germ Protection Soap 125g (Pack of 4)"
+  },
+  {
+    "_id": "rec77",
+    "chunk_text": "Pears Pure & Gentle Soap with Glycerin 125g"
+  },
+  {
+    "_id": "rec78",
+    "chunk_text": "Colgate Total Advanced Health Toothpaste 150g"
+  },
+  {
+    "_id": "rec79",
+    "chunk_text": "Sensodyne Repair & Protect Toothpaste 100g"
+  },
+  {
+    "_id": "rec80",
+    "chunk_text": "Himalaya Purifying Neem Face Wash 200ml"
+  },
+  {
+    "_id": "rec81",
+    "chunk_text": "Harpic Toilet Cleaner Original 1L"
+  },
+  {
+    "_id": "rec82",
+    "chunk_text": "Lizol Disinfectant Surface Cleaner Citrus 975ml"
+  },
+  {
+    "_id": "rec83",
+    "chunk_text": "Domex Fresh Guard Toilet Cleaner 750ml"
+  },
+  {
+    "_id": "rec84",
+    "chunk_text": "Vim Dishwash Gel Lemon 500ml"
+  },
+  {
+    "_id": "rec85",
+    "chunk_text": "Scotch-Brite Scrub Pad Pack of 3"
+  },
+  {
+    "_id": "rec86",
+    "chunk_text": "Gala No Dust Broom with Extendable Handle"
+  },
+  {
+    "_id": "rec87",
+    "chunk_text": "Odonil Room Freshener Block Lavender 50g"
+  },
+  {
+    "_id": "rec88",
+    "chunk_text": "Godrej Aer Twist Car Air Freshener Cool Surf Blue"
+  },
+  {
+    "_id": "rec89",
+    "chunk_text": "Mortein PowerGard Coil Mosquito Repellent 10 Coils"
+  },
+  {
+    "_id": "rec90",
+    "chunk_text": "All Out Ultra Mosquito Repellent Refill 45ml"
+  },
+  {
+    "_id": "rec91",
+    "chunk_text": "Johnson's Baby Soap with Milk 75g"
+  },
+  {
+    "_id": "rec92",
+    "chunk_text": "Pampers Active Baby Diapers Medium 46 Count"
+  },
+  {
+    "_id": "rec93",
+    "chunk_text": "Huggies Wonder Pants Diapers XL 56 Count"
+  },
+  {
+    "_id": "rec94",
+    "chunk_text": "Johnson's Baby Powder 200g"
+  },
+  {
+    "_id": "rec95",
+    "chunk_text": "Himalaya Baby Lotion 100ml"
+  },
+  {
+    "_id": "rec96",
+    "chunk_text": "Dabur Chyawanprash Immunity Booster 1kg"
+  },
+  {
+    "_id": "rec97",
+    "chunk_text": "Dettol Antiseptic Liquid 550ml"
+  },
+  {
+    "_id": "rec98",
+    "chunk_text": "Vicks VapoRub Cough & Cold Balm 50ml"
+  },
+  {
+    "_id": "rec99",
+    "chunk_text": "Dabur Honitus Herbal Cough Syrup 100ml"
+  },
+  {
+    "_id": "rec100",
+    "chunk_text": "Ensure Complete Balanced Nutrition Vanilla 400g"
+  }
+]
