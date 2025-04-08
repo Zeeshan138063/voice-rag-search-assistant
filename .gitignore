@@ -1,0 +1,6 @@
+#add all idea files
+*.iml
+*.ipr
+*.iws
+.idea/
+.env
